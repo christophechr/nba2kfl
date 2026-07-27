@@ -9,6 +9,7 @@
     "sync:nba-player-ids": "node --no-warnings --experimental-strip-types scripts/sync-nba-player-ids.ts",
     "sync:nba2k26-rosters": "node --no-warnings --experimental-strip-types scripts/sync-nba2k26-rosters.ts",
     "import:player-contracts": "node --no-warnings --experimental-strip-types scripts/import-player-contracts.ts",
+    "import:roster-supplement": "node --no-warnings --experimental-strip-types scripts/import-roster-supplement.ts",
     "test": "vitest run"
   },
   "dependencies": {
