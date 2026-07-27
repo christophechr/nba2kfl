@@ -1,6 +1,3 @@
-import type { ImgHTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
-
 export const PLAYER_SILHOUETTE_URL = "/images/player-silhouette.svg";
 
 export const POSITION_FILTERS = ["all", "PG", "SG", "SF", "PF", "C"] as const;
@@ -61,28 +58,3 @@ export function getPositionChipClasses(position: string | null) {
   return primary ? (POSITION_COLOR_CLASSES[primary] ?? "") : "";
 }
 
-type PlayerAvatarProps = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> & {
-  nbaPlayerId: number | null;
-};
-
-export function PlayerAvatar({ className, nbaPlayerId, ...props }: PlayerAvatarProps) {
-  return (
-    <img
-      alt=""
-      className={cn(
-        "shrink-0 rounded-full border border-command-border bg-command-surface-muted object-cover",
-        className
-      )}
-      loading="lazy"
-      onError={(event) => {
-        if (event.currentTarget.src.endsWith(PLAYER_SILHOUETTE_URL)) {
-          return;
-        }
-
-        event.currentTarget.src = PLAYER_SILHOUETTE_URL;
-      }}
-      src={getPlayerPhotoUrl(nbaPlayerId)}
-      {...props}
-    />
-  );
-}

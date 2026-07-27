@@ -22,11 +22,11 @@ import {
 import { cn } from "@/lib/utils";
 import type { Nba2kRosterPlayerSummary } from "@/lib/nba2k-roster-db";
 import type { SnakeDraftPick } from "@/lib/redraft";
+import { PlayerAvatar } from "./player-avatar";
 import {
   formatCapHit,
   getPositionChipClasses,
   getRatingTileClasses,
-  PlayerAvatar,
   POSITION_FILTERS,
   POSITION_LABELS
 } from "./player-visuals";

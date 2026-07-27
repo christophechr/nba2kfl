@@ -221,11 +221,18 @@ export function FranchiseSelectionBoard() {
                           )}
                         >
                           {selectedTeam ? <TeamLogo team={selectedTeam} /> : null}
-                          <span className="block min-h-[38px] rounded-[10px] border border-command-border bg-command-surface-muted px-3 py-2 text-[0.86rem] font-[670] leading-tight text-command-ink">
-                            {selectedTeam
-                              ? `${selectedTeam.abbreviation} - ${selectedTeam.name}`
-                              : "Franchise verrouillée"}
-                          </span>
+                          {selectedTeam ? (
+                            <Link
+                              className="block min-h-[38px] rounded-[10px] border border-command-border bg-command-surface-muted px-3 py-2 text-[0.86rem] font-[670] leading-tight text-command-ink hover:border-command-border-strong"
+                              href={`/draft/franchises/${selectedTeam.id}`}
+                            >
+                              {`${selectedTeam.abbreviation} - ${selectedTeam.name}`}
+                            </Link>
+                          ) : (
+                            <span className="block min-h-[38px] rounded-[10px] border border-command-border bg-command-surface-muted px-3 py-2 text-[0.86rem] font-[670] leading-tight text-command-ink">
+                              Franchise verrouillée
+                            </span>
+                          )}
                         </div>
                       </td>
                       <td className="px-3.5 py-2.5 text-[0.74rem] font-[720] text-command-muted">

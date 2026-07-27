@@ -77,7 +77,7 @@ export function AppHeader({
             <Link
               aria-current={item.href === activeHref ? "page" : undefined}
               className={cn(
-                "inline-flex min-h-8 items-center rounded-[10px] px-3 py-1.5 text-[0.81rem] font-[650] leading-none transition duration-150 ease-out focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[rgba(94,106,210,0.22)] max-[620px]:min-h-[32px] max-[620px]:px-2.5 max-[620px]:py-1.5 max-[620px]:text-[0.77rem]",
+                "inline-flex min-h-8 items-center rounded-[10px] px-3 py-1.5 text-[0.81rem] font-[650] leading-none transition duration-150 ease-out focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[rgba(94,106,210,0.22)] dark:focus-visible:outline-none max-[620px]:min-h-[32px] max-[620px]:px-2.5 max-[620px]:py-1.5 max-[620px]:text-[0.77rem]",
                 item.href === activeHref
                   ? "bg-command-surface text-command-ink shadow-[0_7px_18px_rgba(16,24,40,0.08),inset_0_0_0_1px_rgba(204,210,223,0.72)]"
                   : "text-command-muted-strong hover:bg-command-surface hover:text-command-ink hover:shadow-[0_1px_0_rgba(16,24,40,0.04)]"
