@@ -1,5 +1,6 @@
 import { NBA_TEAMS } from "../data/teams.ts";
 import type { DraftDbClient } from "./draft-db";
+import { normalizeRedraftPlayerIdentity } from "./redraft";
 
 const GAME_VERSION = "nba2k26";
 const SOURCE = "nba2klab";
@@ -184,27 +185,56 @@ export async function loadNba2kRosterPlayers(
     ORDER BY rating DESC, full_name ASC
   `);
 
-  const rosterPlayers = rows.map((row) => ({
-    sourcePlayerId: Number(row.source_player_id),
-    nbaPlayerId:
-      row.nba_player_id === null || row.nba_player_id === undefined
-        ? null
-        : Number(row.nba_player_id),
-    fullName: row.full_name,
-    position: row.position,
-    rating: Number(row.rating),
-    teamId: row.team_id,
-    teamName: row.team_name
-  }));
+  const rosterPlayers = dedupeRosterPlayers(
+    rows.map((row) => ({
+      sourcePlayerId: Number(row.source_player_id),
+      nbaPlayerId:
+        row.nba_player_id === null || row.nba_player_id === undefined
+          ? null
+          : Number(row.nba_player_id),
+      fullName: row.full_name,
+      position: row.position,
+      rating: Number(row.rating),
+      teamId: row.team_id,
+      teamName: row.team_name
+    }))
+  );
 
   const rosterNames = new Set(
-    rosterPlayers.map((player) => normalizeName(player.fullName))
+    rosterPlayers.map((player) => normalizeRedraftPlayerIdentity(player.fullName))
   );
   const draftClassPlayers = NBA_DRAFT_CLASS_2026_ROOKIES.filter(
-    (player) => !rosterNames.has(normalizeName(player.fullName))
+    (player) => !rosterNames.has(normalizeRedraftPlayerIdentity(player.fullName))
   );
 
   return [...rosterPlayers, ...draftClassPlayers].sort(compareRosterPlayers);
+}
+
+function dedupeRosterPlayers(players: Nba2kRosterPlayerSummary[]) {
+  const playersByName = new Map<string, Nba2kRosterPlayerSummary>();
+
+  for (const player of players) {
+    const normalizedName = normalizeRedraftPlayerIdentity(player.fullName);
+    const currentPlayer = playersByName.get(normalizedName);
+
+    if (!currentPlayer || shouldReplaceRosterPlayer(currentPlayer, player)) {
+      playersByName.set(normalizedName, player);
+    }
+  }
+
+  return [...playersByName.values()];
+}
+
+function shouldReplaceRosterPlayer(
+  currentPlayer: Nba2kRosterPlayerSummary,
+  candidatePlayer: Nba2kRosterPlayerSummary
+) {
+  return (
+    normalizeName(currentPlayer.fullName) !==
+      normalizeRedraftPlayerIdentity(currentPlayer.fullName) &&
+    normalizeName(candidatePlayer.fullName) ===
+      normalizeRedraftPlayerIdentity(candidatePlayer.fullName)
+  );
 }
 
 export async function loadRosterPlayerIdentities(

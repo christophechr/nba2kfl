@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import type { Nba2kRosterPlayerSummary } from "@/lib/nba2k-roster-db";
+import { isRedraftPlayerSelected } from "@/lib/redraft";
 import { PlayerAvatar } from "./player-avatar";
 import {
   formatCapHit,
@@ -61,8 +62,8 @@ export function filterRosterByStatus({
   return players
     .filter((player) =>
       status === "taken"
-        ? selectedPlayers.has(player.fullName)
-        : !selectedPlayers.has(player.fullName)
+        ? isRedraftPlayerSelected(player.fullName, selectedPlayers)
+        : !isRedraftPlayerSelected(player.fullName, selectedPlayers)
     )
     .filter(
       (player) =>

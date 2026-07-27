@@ -48,6 +48,42 @@ describe("filterRosterByStatus", () => {
     ]);
   });
 
+  it("hides selected aliases when filtering on available players", () => {
+    const result = filterRosterByStatus({
+      players: [
+        ...players,
+        {
+          sourcePlayerId: 4,
+          nbaPlayerId: null,
+          fullName: "Nic Claxton",
+          position: "C",
+          rating: 81,
+          teamId: "chi",
+          teamName: "Chicago Bulls"
+        },
+        {
+          sourcePlayerId: 5,
+          nbaPlayerId: null,
+          fullName: "De’Anthony Melton",
+          position: "SG",
+          rating: 78,
+          teamId: "gsw",
+          teamName: "Golden State Warriors"
+        }
+      ],
+      position: "all",
+      search: "",
+      selectedPlayers: new Set(["Nicolas Claxton", "De'Anthony Melton"]),
+      status: "available"
+    });
+
+    expect(result.map((player) => player.fullName)).toEqual([
+      "Nikola Jokic",
+      "Shai Gilgeous-Alexander",
+      "LeBron James"
+    ]);
+  });
+
   it("shows only already selected players when filtering on taken", () => {
     const result = filterRosterByStatus({
       players,

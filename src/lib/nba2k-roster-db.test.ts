@@ -219,6 +219,86 @@ describe("NBA 2K roster persistence", () => {
     ]);
   });
 
+  it("deduplicates known NBA roster aliases by canonical player name", async () => {
+    const db = createDbClient([
+      [
+        {
+          source_player_id: -9000063,
+          full_name: "Alex Sarr",
+          position: "C",
+          rating: 84,
+          team_id: "was",
+          team_name: "Washington Wizards",
+          nba_player_id: null
+        },
+        {
+          source_player_id: 500,
+          full_name: "Alexandre Sarr",
+          position: "C | PF",
+          rating: 81,
+          team_id: "was",
+          team_name: "Washington Wizards",
+          nba_player_id: null
+        },
+        {
+          source_player_id: -9000007,
+          full_name: "Nic Claxton",
+          position: "C",
+          rating: 81,
+          team_id: "chi",
+          team_name: "Chicago Bulls",
+          nba_player_id: null
+        },
+        {
+          source_player_id: 278,
+          full_name: "Nicolas Claxton",
+          position: "C",
+          rating: 79,
+          team_id: "bkn",
+          team_name: "Brooklyn Nets",
+          nba_player_id: null
+        },
+        {
+          source_player_id: -9000064,
+          full_name: "Bub Carrington",
+          position: "PG",
+          rating: 78,
+          team_id: "was",
+          team_name: "Washington Wizards",
+          nba_player_id: null
+        },
+        {
+          source_player_id: 503,
+          full_name: "Carlton Carrington",
+          position: "PG",
+          rating: 77,
+          team_id: "was",
+          team_name: "Washington Wizards",
+          nba_player_id: null
+        }
+      ]
+    ]);
+
+    const players = await loadNba2kRosterPlayers(db);
+
+    expect(
+      players.filter((player) =>
+        [
+          "Alex Sarr",
+          "Alexandre Sarr",
+          "Bub Carrington",
+          "Carlton Carrington",
+          "Nic Claxton",
+          "Nicolas Claxton"
+        ].includes(player.fullName)
+      )
+    ).toEqual([
+      expect.objectContaining({ sourcePlayerId: 500, fullName: "Alexandre Sarr" }),
+      expect.objectContaining({ sourcePlayerId: 278, fullName: "Nicolas Claxton" }),
+      expect.objectContaining({ sourcePlayerId: 503, fullName: "Carlton Carrington" })
+    ]);
+  });
+
   it("loads roster identities for NBA id matching", async () => {
     const db = createDbClient([
       [

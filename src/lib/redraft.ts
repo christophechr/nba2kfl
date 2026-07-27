@@ -33,6 +33,12 @@ export type FinalFranchiseSelection = {
   teamId: string;
 };
 
+const REDRAFT_PLAYER_NAME_ALIASES = new Map<string, string>([
+  ["alex sarr", "alexandre sarr"],
+  ["bub carrington", "carlton carrington"],
+  ["nic claxton", "nicolas claxton"]
+]);
+
 export const REDRAFT_PLAYER_POOL_STORAGE_KEY = "nba2kfl:redraft-player-pool:v1";
 export const REDRAFT_PICKS_STORAGE_KEY = "nba2kfl:redraft-picks:v1";
 
@@ -170,10 +176,13 @@ export function validateRedraftPickChange({
     return { valid: false, message: "Ce joueur n'est pas disponible." };
   }
 
+  const normalizedPlayerIdentity = normalizeRedraftPlayerIdentity(
+    normalizedPlayerName
+  );
   const duplicatePick = Object.entries(picksByNumber).find(
     ([storedPickNumber, storedPlayerName]) =>
       Number(storedPickNumber) !== pickNumber &&
-      storedPlayerName === normalizedPlayerName
+      normalizeRedraftPlayerIdentity(storedPlayerName) === normalizedPlayerIdentity
   );
 
   if (duplicatePick) {
@@ -196,6 +205,31 @@ export function validateRedraftPickChange({
   }
 
   return { valid: true, playerName: normalizedPlayerName };
+}
+
+export function normalizeRedraftPlayerIdentity(value: string) {
+  const normalizedName = value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/\b(jr|sr|ii|iii|iv)\b/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+  return REDRAFT_PLAYER_NAME_ALIASES.get(normalizedName) ?? normalizedName;
+}
+
+export function isRedraftPlayerSelected(
+  playerName: string,
+  selectedPlayers: ReadonlySet<string>
+) {
+  const playerIdentity = normalizeRedraftPlayerIdentity(playerName);
+
+  return [...selectedPlayers].some(
+    (selectedPlayer) =>
+      normalizeRedraftPlayerIdentity(selectedPlayer) === playerIdentity
+  );
 }
 
 export function parseFranchiseSelections(
