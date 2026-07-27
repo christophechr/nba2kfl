@@ -1,0 +1,538 @@
+[
+  {
+    "id": -9000000,
+    "first_name": "Keshon",
+    "last_name": "Gilbert",
+    "team": "Atlanta Hawks",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000001,
+    "first_name": "Ron",
+    "last_name": "Harper Jr.",
+    "team": "Boston Celtics",
+    "position": "SF",
+    "rating": 73
+  },
+  {
+    "id": -9000002,
+    "first_name": "Day’Ron",
+    "last_name": "Sharpe",
+    "team": "Brooklyn Nets",
+    "position": "C",
+    "rating": 78
+  },
+  {
+    "id": -9000003,
+    "first_name": "Chaney",
+    "last_name": "Johnson",
+    "team": "Brooklyn Nets",
+    "position": "SF",
+    "rating": 73
+  },
+  {
+    "id": -9000004,
+    "first_name": "Malachi",
+    "last_name": "Smith",
+    "team": "Brooklyn Nets",
+    "position": "PG",
+    "rating": 72
+  },
+  {
+    "id": -9000005,
+    "first_name": "E.J.",
+    "last_name": "Liddell",
+    "team": "Brooklyn Nets",
+    "position": "PF",
+    "rating": 70
+  },
+  {
+    "id": -9000006,
+    "first_name": "Trevon",
+    "last_name": "Scott",
+    "team": "Brooklyn Nets",
+    "position": "PF",
+    "rating": 67
+  },
+  {
+    "id": -9000007,
+    "first_name": "Nic",
+    "last_name": "Claxton",
+    "team": "Chicago Bulls",
+    "position": "C",
+    "rating": 81
+  },
+  {
+    "id": -9000008,
+    "first_name": "Rob",
+    "last_name": "Dillingham",
+    "team": "Chicago Bulls",
+    "position": "PG",
+    "rating": 73
+  },
+  {
+    "id": -9000009,
+    "first_name": "Mac",
+    "last_name": "McClung",
+    "team": "Chicago Bulls",
+    "position": "SG",
+    "rating": 71
+  },
+  {
+    "id": -9000010,
+    "first_name": "Thomas",
+    "last_name": "Bryant",
+    "team": "Cleveland Cavaliers",
+    "position": "C",
+    "rating": 76
+  },
+  {
+    "id": -9000011,
+    "first_name": "Olivier",
+    "last_name": "Sarr",
+    "team": "Cleveland Cavaliers",
+    "position": "C",
+    "rating": 68
+  },
+  {
+    "id": -9000012,
+    "first_name": "Tristan",
+    "last_name": "Enaruna",
+    "team": "Cleveland Cavaliers",
+    "position": "SF",
+    "rating": 68
+  },
+  {
+    "id": -9000013,
+    "first_name": "Moussa",
+    "last_name": "Cisse",
+    "team": "Dallas Mavericks",
+    "position": "C",
+    "rating": 73
+  },
+  {
+    "id": -9000014,
+    "first_name": "John",
+    "last_name": "Poulakidas",
+    "team": "Dallas Mavericks",
+    "position": "SG",
+    "rating": 71
+  },
+  {
+    "id": -9000015,
+    "first_name": "Ronald",
+    "last_name": "Holland II",
+    "team": "Detroit Pistons",
+    "position": "PF",
+    "rating": 78
+  },
+  {
+    "id": -9000016,
+    "first_name": "Wendell",
+    "last_name": "Moore Jr.",
+    "team": "Detroit Pistons",
+    "position": "SF",
+    "rating": 70
+  },
+  {
+    "id": -9000017,
+    "first_name": "De’Anthony",
+    "last_name": "Melton",
+    "team": "Golden State Warriors",
+    "position": "SG",
+    "rating": 79
+  },
+  {
+    "id": -9000018,
+    "first_name": "Al",
+    "last_name": "Horford",
+    "team": "Golden State Warriors",
+    "position": "C",
+    "rating": 79
+  },
+  {
+    "id": -9000019,
+    "first_name": "Gary",
+    "last_name": "Payton II",
+    "team": "Golden State Warriors",
+    "position": "SF",
+    "rating": 79
+  },
+  {
+    "id": -9000020,
+    "first_name": "Seth",
+    "last_name": "Curry",
+    "team": "Golden State Warriors",
+    "position": "SG",
+    "rating": 74
+  },
+  {
+    "id": -9000021,
+    "first_name": "Nate",
+    "last_name": "Williams",
+    "team": "Golden State Warriors",
+    "position": "SF",
+    "rating": 74
+  },
+  {
+    "id": -9000022,
+    "first_name": "LJ",
+    "last_name": "Cryer",
+    "team": "Golden State Warriors",
+    "position": "PG",
+    "rating": 74
+  },
+  {
+    "id": -9000023,
+    "first_name": "Charles",
+    "last_name": "Bassey",
+    "team": "Golden State Warriors",
+    "position": "C",
+    "rating": 72
+  },
+  {
+    "id": -9000024,
+    "first_name": "Malevy",
+    "last_name": "Leons",
+    "team": "Golden State Warriors",
+    "position": "PF",
+    "rating": 70
+  },
+  {
+    "id": -9000025,
+    "first_name": "Jalen",
+    "last_name": "Slawson",
+    "team": "Indiana Pacers",
+    "position": "SF",
+    "rating": 73
+  },
+  {
+    "id": -9000026,
+    "first_name": "Ethan",
+    "last_name": "Thompson",
+    "team": "Indiana Pacers",
+    "position": "SG",
+    "rating": 73
+  },
+  {
+    "id": -9000027,
+    "first_name": "TyTy",
+    "last_name": "Washington Jr.",
+    "team": "LA Clippers",
+    "position": "PG",
+    "rating": 70
+  },
+  {
+    "id": -9000028,
+    "first_name": "Norchad",
+    "last_name": "Omier",
+    "team": "LA Clippers",
+    "position": "PF",
+    "rating": 68
+  },
+  {
+    "id": -9000029,
+    "first_name": "Sean",
+    "last_name": "Pedulla",
+    "team": "LA Clippers",
+    "position": "PG",
+    "rating": 68
+  },
+  {
+    "id": -9000030,
+    "first_name": "Olivier-Maxence",
+    "last_name": "Prosper",
+    "team": "Memphis Grizzlies",
+    "position": "C",
+    "rating": 78
+  },
+  {
+    "id": -9000031,
+    "first_name": "Taj",
+    "last_name": "Gibson",
+    "team": "Memphis Grizzlies",
+    "position": "C",
+    "rating": 70
+  },
+  {
+    "id": -9000032,
+    "first_name": "Adama",
+    "last_name": "Bal",
+    "team": "Memphis Grizzlies",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000033,
+    "first_name": "Trevor",
+    "last_name": "Keels",
+    "team": "Miami Heat",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000034,
+    "first_name": "Jahmir",
+    "last_name": "Young",
+    "team": "Miami Heat",
+    "position": "PG",
+    "rating": 67
+  },
+  {
+    "id": -9000035,
+    "first_name": "Cormac",
+    "last_name": "Ryan",
+    "team": "Milwaukee Bucks",
+    "position": "SG",
+    "rating": 72
+  },
+  {
+    "id": -9000036,
+    "first_name": "Alex",
+    "last_name": "Antetokounmpo",
+    "team": "Milwaukee Bucks",
+    "position": "SF",
+    "rating": 68
+  },
+  {
+    "id": -9000037,
+    "first_name": "Bones",
+    "last_name": "Hyland",
+    "team": "Minnesota Timberwolves",
+    "position": "PG",
+    "rating": 76
+  },
+  {
+    "id": -9000038,
+    "first_name": "Trey",
+    "last_name": "Lyles",
+    "team": "Minnesota Timberwolves",
+    "position": "PF",
+    "rating": 74
+  },
+  {
+    "id": -9000039,
+    "first_name": "Zyon",
+    "last_name": "Pullin",
+    "team": "Minnesota Timberwolves",
+    "position": "PG",
+    "rating": 67
+  },
+  {
+    "id": -9000040,
+    "first_name": "DeAndre",
+    "last_name": "Jordan",
+    "team": "New Orleans Pelicans",
+    "position": "C",
+    "rating": 76
+  },
+  {
+    "id": -9000041,
+    "first_name": "Josh",
+    "last_name": "Oduro",
+    "team": "New Orleans Pelicans",
+    "position": "PF",
+    "rating": 68
+  },
+  {
+    "id": -9000042,
+    "first_name": "Landry",
+    "last_name": "Shamet",
+    "team": "New York Knicks",
+    "position": "SG",
+    "rating": 77
+  },
+  {
+    "id": -9000043,
+    "first_name": "Mohamed",
+    "last_name": "Diawara",
+    "team": "New York Knicks",
+    "position": "PF",
+    "rating": 74
+  },
+  {
+    "id": -9000044,
+    "first_name": "Trey",
+    "last_name": "Jemison III",
+    "team": "New York Knicks",
+    "position": "C",
+    "rating": 71
+  },
+  {
+    "id": -9000045,
+    "first_name": "Colin",
+    "last_name": "Castleton",
+    "team": "Orlando Magic",
+    "position": "PF",
+    "rating": 70
+  },
+  {
+    "id": -9000046,
+    "first_name": "Alex",
+    "last_name": "Morales",
+    "team": "Orlando Magic",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000047,
+    "first_name": "MarJon",
+    "last_name": "Beauchamp",
+    "team": "Philadelphia 76ers",
+    "position": "SF",
+    "rating": 70
+  },
+  {
+    "id": -9000048,
+    "first_name": "Pat",
+    "last_name": "Spencer",
+    "team": "Phoenix Suns",
+    "position": "PG",
+    "rating": 76
+  },
+  {
+    "id": -9000049,
+    "first_name": "Micah",
+    "last_name": "Potter",
+    "team": "Portland Trail Blazers",
+    "position": "C",
+    "rating": 76
+  },
+  {
+    "id": -9000050,
+    "first_name": "Chris",
+    "last_name": "Youngblood",
+    "team": "Portland Trail Blazers",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000051,
+    "first_name": "Jayson",
+    "last_name": "Kent",
+    "team": "Portland Trail Blazers",
+    "position": "SF",
+    "rating": 68
+  },
+  {
+    "id": -9000052,
+    "first_name": "Russell",
+    "last_name": "Westbrook",
+    "team": "Sacramento Kings",
+    "position": "PG",
+    "rating": 81
+  },
+  {
+    "id": -9000053,
+    "first_name": "Precious",
+    "last_name": "Achiuwa",
+    "team": "Sacramento Kings",
+    "position": "PF",
+    "rating": 79
+  },
+  {
+    "id": -9000054,
+    "first_name": "Killian",
+    "last_name": "Hayes",
+    "team": "Sacramento Kings",
+    "position": "PG",
+    "rating": 72
+  },
+  {
+    "id": -9000055,
+    "first_name": "Patrick",
+    "last_name": "Baldwin Jr.",
+    "team": "Sacramento Kings",
+    "position": "PF",
+    "rating": 71
+  },
+  {
+    "id": -9000056,
+    "first_name": "Adam",
+    "last_name": "Flagler",
+    "team": "Sacramento Kings",
+    "position": "PG",
+    "rating": 67
+  },
+  {
+    "id": -9000057,
+    "first_name": "Bismack",
+    "last_name": "Biyombo",
+    "team": "San Antonio Spurs",
+    "position": "C",
+    "rating": 70
+  },
+  {
+    "id": -9000058,
+    "first_name": "Svi",
+    "last_name": "Mykhailiuk",
+    "team": "Utah Jazz",
+    "position": "SG",
+    "rating": 76
+  },
+  {
+    "id": -9000059,
+    "first_name": "Blake",
+    "last_name": "Hinson",
+    "team": "Utah Jazz",
+    "position": "PF",
+    "rating": 73
+  },
+  {
+    "id": -9000060,
+    "first_name": "Mo",
+    "last_name": "Bamba",
+    "team": "Utah Jazz",
+    "position": "C",
+    "rating": 71
+  },
+  {
+    "id": -9000061,
+    "first_name": "Bez",
+    "last_name": "Mbeng",
+    "team": "Utah Jazz",
+    "position": "SG",
+    "rating": 69
+  },
+  {
+    "id": -9000062,
+    "first_name": "Hayden",
+    "last_name": "Gray",
+    "team": "Utah Jazz",
+    "position": "SG",
+    "rating": 68
+  },
+  {
+    "id": -9000063,
+    "first_name": "Alex",
+    "last_name": "Sarr",
+    "team": "Washington Wizards",
+    "position": "C",
+    "rating": 84
+  },
+  {
+    "id": -9000064,
+    "first_name": "Bub",
+    "last_name": "Carrington",
+    "team": "Washington Wizards",
+    "position": "PG",
+    "rating": 78
+  },
+  {
+    "id": -9000065,
+    "first_name": "Julian",
+    "last_name": "Reese",
+    "team": "Washington Wizards",
+    "position": "C",
+    "rating": 76
+  },
+  {
+    "id": -9000066,
+    "first_name": "Sharife",
+    "last_name": "Cooper",
+    "team": "Washington Wizards",
+    "position": "PG",
+    "rating": 74
+  }
+]
