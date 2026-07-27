@@ -20,14 +20,14 @@ import {
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { PlayerAvatar } from "./player-avatar";
 import { PlayerPickerDialog } from "./PlayerPickerDialog";
 import { PlayerRosterDialog } from "./PlayerRosterDialog";
 import {
   formatCapHit,
   getPositionChipClasses,
   getPrimaryPosition,
-  getRatingTileClasses,
-  PlayerAvatar
+  getRatingTileClasses
 } from "./player-visuals";
 import { useDraftLive } from "./useDraftLive";
 import type { Nba2kRosterPlayerSummary } from "@/lib/nba2k-roster-db";
@@ -581,9 +581,18 @@ function RedraftPickRow({
           <strong className="block overflow-hidden text-ellipsis whitespace-nowrap text-[0.89rem] font-[700] text-command-ink">
             {pick.selection.gmName}
           </strong>
-          <span className="mt-0.5 block overflow-hidden text-ellipsis whitespace-nowrap text-[0.76rem] font-[650] text-command-muted">
-            {team ? team.name : "Franchise"}
-          </span>
+          {team ? (
+            <Link
+              className="mt-0.5 block overflow-hidden text-ellipsis whitespace-nowrap text-[0.76rem] font-[650] text-command-muted hover:text-command-accent-dark hover:underline"
+              href={`/draft/franchises/${team.id}`}
+            >
+              {team.name}
+            </Link>
+          ) : (
+            <span className="mt-0.5 block overflow-hidden text-ellipsis whitespace-nowrap text-[0.76rem] font-[650] text-command-muted">
+              Franchise
+            </span>
+          )}
         </div>
       </div>
 

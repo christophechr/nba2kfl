@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NBA_TEAMS, type Team } from "@/data/teams";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -263,13 +264,13 @@ export function FranchiseOwnershipManagerView({
 
 function TeamCell({ team }: { team: Team }) {
   return (
-    <div className="team-cell">
+    <Link className="team-cell" href={`/draft/franchises/${team.id}`}>
       <img src={team.logoUrl} alt="" className="team-logo" loading="lazy" />
       <div>
         <strong>{team.name}</strong>
         <span>{team.abbreviation}</span>
       </div>
-    </div>
+    </Link>
   );
 }
 
