@@ -21,7 +21,11 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import type { Nba2kRosterPlayerSummary } from "@/lib/nba2k-roster-db";
-import type { SnakeDraftPick } from "@/lib/redraft";
+import {
+  isRedraftPlayerSelected,
+  normalizeRedraftPlayerIdentity,
+  type SnakeDraftPick
+} from "@/lib/redraft";
 import { PlayerAvatar } from "./player-avatar";
 import {
   formatCapHit,
@@ -61,7 +65,9 @@ export function filterRosterPlayers({
   return players
     .filter(
       (player) =>
-        player.fullName === selectedPlayer || !selectedPlayers.has(player.fullName)
+        normalizeRedraftPlayerIdentity(player.fullName) ===
+          normalizeRedraftPlayerIdentity(selectedPlayer) ||
+        !isRedraftPlayerSelected(player.fullName, selectedPlayers)
     )
     .filter(
       (player) =>

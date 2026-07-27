@@ -48,6 +48,42 @@ describe("filterRosterPlayers", () => {
     ]);
   });
 
+  it("excludes already taken aliases from the next pick's player list", () => {
+    const result = filterRosterPlayers({
+      players: [
+        ...players,
+        {
+          sourcePlayerId: 4,
+          nbaPlayerId: null,
+          fullName: "Alex Sarr",
+          position: "C",
+          rating: 84,
+          teamId: "was",
+          teamName: "Washington Wizards"
+        },
+        {
+          sourcePlayerId: 5,
+          nbaPlayerId: null,
+          fullName: "Bub Carrington",
+          position: "PG",
+          rating: 78,
+          teamId: "was",
+          teamName: "Washington Wizards"
+        }
+      ],
+      position: "all",
+      search: "",
+      selectedPlayer: "",
+      selectedPlayers: new Set(["Alexandre Sarr", "Carlton Carrington"])
+    });
+
+    expect(result.map((player) => player.fullName)).toEqual([
+      "Nikola Jokic",
+      "Shai Gilgeous-Alexander",
+      "LeBron James"
+    ]);
+  });
+
   it("filters by case-insensitive name search", () => {
     const result = filterRosterPlayers({
       players,

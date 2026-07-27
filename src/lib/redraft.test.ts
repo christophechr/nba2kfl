@@ -6,6 +6,7 @@ import {
   DEFAULT_GM_DRAFT_ORDER,
   FINAL_FRANCHISE_SELECTIONS,
   GM_DRAFT_SLOT_LINKS,
+  isRedraftPlayerSelected,
   parseFranchiseSelections,
   validateRedraftPickChange,
   type FranchiseSelection
@@ -283,6 +284,55 @@ describe("validateRedraftPickChange", () => {
         playerPool
       })
     ).toEqual({ valid: false, message: "Ce joueur n'est pas disponible." });
+  });
+
+  it("rejects already picked players by normalized alias for future picks", () => {
+    const playerPoolWithAliases = [
+      "Alex Sarr",
+      "Bub Carrington",
+      "De’Anthony Melton",
+      "Nic Claxton",
+      "Joueur 2"
+    ];
+
+    for (const playerName of [
+      "Alex Sarr",
+      "Bub Carrington",
+      "De’Anthony Melton",
+      "Nic Claxton"
+    ]) {
+      expect(
+        validateRedraftPickChange({
+          draftPicks,
+          pickNumber: 5,
+          picksByNumber: {
+            1: "Alexandre Sarr",
+            2: "Carlton Carrington",
+            3: "De'Anthony Melton",
+            4: "Nicolas Claxton"
+          },
+          playerName,
+          playerPool: playerPoolWithAliases
+        })
+      ).toEqual({ valid: false, message: "Ce joueur est deja pris." });
+    }
+  });
+});
+
+describe("isRedraftPlayerSelected", () => {
+  it("matches selected players by normalized aliases for available player lists", () => {
+    const selectedPlayers = new Set([
+      "Alexandre Sarr",
+      "Carlton Carrington",
+      "De'Anthony Melton",
+      "Nicolas Claxton"
+    ]);
+
+    expect(isRedraftPlayerSelected("Alex Sarr", selectedPlayers)).toBe(true);
+    expect(isRedraftPlayerSelected("Bub Carrington", selectedPlayers)).toBe(true);
+    expect(isRedraftPlayerSelected("De’Anthony Melton", selectedPlayers)).toBe(true);
+    expect(isRedraftPlayerSelected("Nic Claxton", selectedPlayers)).toBe(true);
+    expect(isRedraftPlayerSelected("Joueur disponible", selectedPlayers)).toBe(false);
   });
 });
 
